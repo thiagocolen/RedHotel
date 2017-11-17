@@ -14,7 +14,7 @@
     .controller('View1Ctrl', View1Ctrl);
 
 
-  function View1Ctrl($scope) {
+  function View1Ctrl($scope, Services) {
     var vm = this;
     vm.init = init;
     vm.monthNames = [
@@ -34,15 +34,17 @@
 
     vm.startDate = 'nada!';
 
-
     $scope.$watch('vm.startDate', function (current, original) {
       console.log('vm.startDate was %s', original);
       console.log('vm.startDate is now %s', current);
     });
 
-
-
     function init() {
+
+      Services.getHotels().then(function (response) {
+        console.log(response);
+      });
+
       $('input[name="daterange"]')
         .dateRangePicker({
           startOfWeek: 'monday',
@@ -73,8 +75,6 @@
 
           $scope.$apply();
         });
-
-
     }
 
 

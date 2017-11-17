@@ -2,7 +2,7 @@
   "name": "redhotel",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
+  "description": "One, two, one, two, it's just a test",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "devDependencies": {

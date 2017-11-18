@@ -13,7 +13,6 @@
     };
 
     function getHotels() {
-      console.log('getHotels');
       return $http.get('http://www.raphaelfabeni.com.br/rv/hotels.json')
         .then(function (response) {
           return response.data;

@@ -32,18 +32,9 @@
       "December"
     ];
 
-    vm.startDate = 'nada!';
-
-    $scope.$watch('vm.startDate', function (current, original) {
-      console.log('vm.startDate was %s', original);
-      console.log('vm.startDate is now %s', current);
-    });
-
     function init() {
 
-      Services.getHotels().then(function (response) {
-        console.log(response);
-      });
+
 
       $('input[name="daterange"]')
         .dateRangePicker({
@@ -63,6 +54,11 @@
           var date1 = new Date(obj.date1);
           var date2 = new Date(obj.date2);
 
+          Services.getHotels().then(function (response) {
+            vm.hotels = response.hotels;
+            console.log('', 'vm.hotels:', vm.hotels);
+          });
+    
           vm.startDate =
             vm.monthNames[date1.getMonth()] +
             ' ' + date1.getDate() +
@@ -72,6 +68,7 @@
             vm.monthNames[date2.getMonth()] +
             ' ' + date2.getDate() +
             ', ' + date2.getFullYear();
+
 
           $scope.$apply();
         });

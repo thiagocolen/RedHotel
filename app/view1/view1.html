@@ -26,6 +26,28 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-sm-12">
+                
+                <ul>
+                  <li ng-repeat="hotel in vm.hotels">
+                    <p>{{hotel.name}}</p>
+                    <p>{{hotel.description}}</p>
+                    <p> <img ng-src="{{hotel.image}}" alt=""></p>
+                    <p>{{hotel.rate}}</p>
+                    <p>{{hotel.price}}</p>
+
+                    <p ng-repeat="price in hotel.price_history">
+                      {{price.month}} - {{price.value}}
+                    </p>
+
+
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+
           </div>
         </div>
 

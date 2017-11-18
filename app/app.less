@@ -1,13 +1,5 @@
 /* ----------------- general stuff */
 
-.Heebo-family {
-  font-family: 'Heebo', sans-serif;
-}
-
-.Montserrat-family {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .home .hero {
   display: block;
   width: 100%;
@@ -18,19 +10,248 @@
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
-  margin-bottom: -200px;
+  margin-bottom: -120px;
 }
 
 
+/* ----------- vars colors and fonts  */
+
+@green-color-venture: #79bd1a;
+@light-green-color-venture: #a0dc4b;
+@orange-color-venture: #f98100;
+@light-orange-color-venture: #ffb76a;
+@gray-color-venture: #b5b5b5;
+@dark-gray-color-venture: #7b7b7b;
+@light-gray-color-venture: #dadada;
+@Heebo-family: 'Heebo',
+sans-serif;
+@Montserrat-family: 'Montserrat',
+sans-serif;
+
 /* ----------- daterangepicker */
 
-#hotel-calendar {
-  border: solid 5px fuchsia;
-  .date-picker-wrapper {
-    background-color: honeydew;
+.hotel-calendar {
+  // font-family: @Montserrat-family;
+  font-family: @Heebo-family;
+  .panel {
+    border-bottom: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    box-shadow: 0 -15px 15px rgba(0, 0, 0, .3);
   }
-  .time2 {
-    border: solid 1px red;
-    display: none;
+  h1 {
+    color: black;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 30px 0 40px;
+  }
+  .dates-area {
+    padding-left: 5%;
+    h2 {
+      color: black;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    h3 {
+      color: @gray-color-venture;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  }
+  #calendarContainer {
+    .date-picker-wrapper {
+      font-family: @Montserrat-family;
+      background-color: transparent;
+      border: 0;
+      .drp_top-bar {
+        display: none;
+      }
+      .month-wrapper {
+        border: 0;
+        .caption {
+          border-top: solid 1px @light-gray-color-venture;
+          color: black;
+        }
+        .week-name {
+          th {
+            padding: 10px 0;
+            border-bottom: solid 1px @light-gray-color-venture;
+            font-size: 10px;
+          }
+        }
+        .day {
+          font-size: 10px;
+          margin: 3px 0;
+          padding: 10px 0 8px;
+          color: black;
+        }
+        .real-today {
+          background-color: @light-orange-color-venture;
+        }
+        .checked {
+          background-color: @light-green-color-venture;
+          color: white;
+        }
+        @calendar-day-radius: 20px;
+        .first-date-selected {
+          background-color: @green-color-venture !important;
+          -webkit-border-top-left-radius: @calendar-day-radius;
+          -webkit-border-bottom-left-radius: @calendar-day-radius;
+          -moz-border-radius-topleft: @calendar-day-radius;
+          -moz-border-radius-bottomleft: @calendar-day-radius;
+          border-top-left-radius: @calendar-day-radius;
+          border-bottom-left-radius: @calendar-day-radius;
+        }
+        .last-date-selected {
+          background-color: @green-color-venture !important;
+          -webkit-border-top-right-radius: @calendar-day-radius;
+          -webkit-border-bottom-right-radius: @calendar-day-radius;
+          -moz-border-radius-topright: @calendar-day-radius;
+          -moz-border-radius-bottomright: @calendar-day-radius;
+          border-top-right-radius: @calendar-day-radius;
+          border-bottom-right-radius: @calendar-day-radius;
+        }
+      }
+    }
+    .time2 {
+      display: none;
+    }
+  }
+}
+
+
+/* ----------- hotels */
+
+body {
+  font-family: @Heebo-family;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+
+.btn-default {
+  background-image: none;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 7px 20px 5px;
+}
+
+.orange-button {
+  border: solid 1px @orange-color-venture;
+  color: @orange-color-venture;
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus,
+  &:active:focus {
+    border: solid 1px @orange-color-venture;
+    background-color: @orange-color-venture;
+    color: white;
+  }
+}
+
+.green-button {
+  border: solid 1px @green-color-venture;
+  color: @green-color-venture;
+  margin-left: 20px;
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus,
+  &:active:focus {
+    border: solid 1px @green-color-venture;
+    background-color: @green-color-venture;
+    color: white;
+  }
+}
+
+.hotel-list {
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  h2 {
+    color: @orange-color-venture;
+    text-transform: uppercase;
+    margin: 5px 0;
+    letter-spacing: 2px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .hotel-description {
+    padding: 10px 0;
+    p {
+      color: @gray-color-venture;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+    img.img-responsive {
+      margin: 0 0 0 -50px;
+      -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    }
+    .col-sm-6 {
+      margin: 0 0 0 -30px;
+    }
+    .rate {
+      img {
+        width: 12px;
+        margin-right: 2px;
+      }
+    }
+    .price {
+      border-left: solid 1px @light-gray-color-venture;
+      padding: 70px 20px 40px 0px;
+      h4 {
+        margin: 0px;
+        color: @gray-color-venture;
+        font-size: 10px;
+        text-align: right;
+      }
+      h3 {
+        margin: 5px 0 0 0;
+        font-size: 18px;
+        color: @green-color-venture;
+        font-weight: bold;
+        text-align: right;
+        letter-spacing: 1px; // font-family: @Montserrat-family;        
+      }
+    }
+  }
+  .hotel-prices {
+    padding: 10px 0;
+    h2 {
+      color: @orange-color-venture;
+      text-transform: uppercase;
+      float: left;
+    }
+    .back-to-button {
+      float: right;
+      margin: 3px 10px 0 0;
+      div {
+        float: right;
+        font-size: 10px;
+        color: @dark-gray-color-venture;
+        margin: 3px 0 0 20px;
+      }
+      img {
+        width: 25px;
+      }
+    }
+    .canvas-wrapper {
+      margin: 50px 0 0;
+      height: 120px;
+    }
   }
 }

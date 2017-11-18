@@ -6,7 +6,8 @@
     'ngRoute',
     'myApp.view1',
     'myApp.view2',
-    'myApp.services'
+    'myApp.services',
+    'myApp.stars'
   ]).
     config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');

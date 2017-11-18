@@ -4,58 +4,106 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8 col-sm-offset-2 hotel-calendar">
 
         <div class="panel panel-default">
           <div class="panel-body">
 
             <div class="row">
-              <div class="col-sm-12">
-                <input type="text" name="daterange" />
-                <p>{{vm.startDate}}</p>
-                <p>{{vm.endDate}}</p>
-                <br>
-                <br>
-                <br>
+              <div class="col-sm-12 text-center">
+                <h1>Select the dates to stay in Charlotte</h1>
               </div>
-            </div>
+              <div class="col-sm-5 col-sm-offset-1 dates-area">
+                <input type="text" name="daterange" ng-hide="true" />
+                <Br>
+                <h2>Check-in</h2>
+                <h3>{{vm.startDate}}</h3>
+                <br>
+                <Br>
+                <h2>Check-out</h2>
+                <h3>{{vm.endDate}}</h3>
+                <Br>
+                <Br>
+                <button type="button" class="btn btn-default orange-button">Search Hotels</button>
 
-            <div class="row">
-              <div class="col-sm-12">
-                <div id="hotel-calendar"></div>
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12">
-                
-                <ul>
-                  <li ng-repeat="hotel in vm.hotels">
-                    <p>{{hotel.name}}</p>
-                    <p>{{hotel.description}}</p>
-                    <p> <img ng-src="{{hotel.image}}" alt=""></p>
-                    <p>{{hotel.rate}}</p>
-                    <p>{{hotel.price}}</p>
-
-                    <p ng-repeat="price in hotel.price_history">
-                      {{price.month}} - {{price.value}}
-                    </p>
-
-
-                  </li>
-                </ul>
-
+              <div class="col-sm-5">
+                <div id="calendarContainer"></div>
               </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+    </div>
 
 
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <br>
+        <h4>Best choices between {start date} and { end date }</h4>
+        <br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <h1>filter</h1>
+      </div>
+      <div class="col-sm-9 hotel-list">
+        <ul>
+          <li ng-repeat="hotel in vm.hotels">
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <div class="row hotel-description" ng-hide="hotel.visibility">
+                  <div class="col-sm-4">
+                    <img ng-src="{{hotel.image}}" class="img-responsive img-rounded">
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="rate">
+                      <img src="imgs/star-filled.svg" ng-repeat="i in vm.starsNumber(hotel.rate)">
+                    </div>
+                    <h2>{{hotel.name}}</h2>
+                    <p>{{hotel.description}}</p>
+                    <button type="button" class="btn btn-default orange-button">Book now</button>
+                    <button type="button" class="btn btn-default green-button" ng-click="vm.priceHistoryVisibilityChange(hotel)">Price history</button>
+                  </div>
+                  <div class="col-sm-2 price">
+                    <h4>Total</h4>
+                    <h3>${{hotel.price}}</h3>
+                  </div>
+                </div>
+
+                <div class="row hotel-prices" ng-show="hotel.visibility">
+                  <div class="col-sm-4">
+                    <img ng-src="{{hotel.image}}" class="img-responsive img-rounded">
+                  </div>
+                  <div class="col-sm-8">
+                    <h2>Price History for 2017</h2>
+                    <a href="" ng-click="vm.priceHistoryVisibilityChange(hotel)" class="back-to-button">
+                      <img src="imgs/back-description.svg">
+                      <div>Back to</div>
+                    </a>
+                    <div class="canvas-wrapper">
+                      <canvas id="{{'bar_' + $index}}" class="chart chart-bar" chart-colors="vm.chartColors" chart-options="vm.chartOptions" chart-data="hotel.price_history.chartData"
+                        chart-labels="hotel.price_history.chartLabels"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
 
       </div>
     </div>
+
   </div>
 
 </div>

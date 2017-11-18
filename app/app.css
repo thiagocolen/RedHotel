@@ -28,3 +28,10 @@
   border: solid 1px red;
   display: none;
 }
+/* ----------- hotels */
+.hotel-lists ul {
+  padding: 0;
+}
+.hotel-lists img {
+  width: 400px;
+}

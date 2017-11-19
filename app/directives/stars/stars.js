@@ -1,17 +1,38 @@
-angular
-  .module('myApp.stars', [])
-  .directive('stars', stars);
+(function () {
+  'use strict';
 
-function stars() {
-  var directive = {
-    link: link,
-    templateUrl: 'directives/stars/stars.html',
-    restrict: 'EA'
-  };
-  return directive;
+  angular
+    .module('myApp.stars', [])
+    .directive('stars', stars);
 
-  function link(scope, element, attrs) {
-    console.log('stars', attrs.number);
-    /* */
+  function stars() {
+    var directive = {
+      restrict: 'EA',
+      templateUrl: 'directives/stars/stars.html',
+      scope: {
+        startsNumber: '=',
+        selectedStar: '='
+      },
+      controller: starsController,
+      controllerAs: 'vm',
+      bindToController: true
+    };
+    return directive;
   }
-}
+
+  function starsController() {
+    var vm = this;
+    vm.fiveStarts = [1, 2, 3, 4, 5];
+    vm.clickStar = clickStar;
+    vm.$onInit = onInit;
+
+    function onInit() {
+    }
+
+    function clickStar(num) {
+      vm.selectedStar = num;
+    }
+
+  }
+
+})();

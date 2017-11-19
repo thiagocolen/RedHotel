@@ -8,6 +8,8 @@
     'myApp.view2',
     'myApp.services',
     'myApp.stars'
+    // ,
+    // 'myApp.filters'
   ]).
     config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');

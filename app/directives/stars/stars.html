@@ -1,1 +1,7 @@
-<img src="imgs/star-filled.svg" alt="">
+<div>
+  <div class="starContainer" ng-repeat="star in vm.fiveStarts">
+    <img src="imgs/star-filled.svg" ng-click="vm.clickStar(star)" ng-show="star <= vm.selectedStar" alt="">
+    <img src="imgs/star-outline.svg" ng-click="vm.clickStar(star)" ng-hide="star <= vm.selectedStar" alt="">
+  </div>
+  <div class="clearfix"></div>
+</div>

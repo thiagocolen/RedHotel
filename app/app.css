@@ -1,5 +1,57 @@
+/* ----------- vars colors and fonts  */
 /* ----------------- general stuff */
-.home .hero {
+body {
+  font-family: 'Heebo', sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+.btn-default {
+  background-image: none;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 7px 20px 5px;
+}
+.btn-default[disabled],
+.btn-default[disabled]:hover {
+  opacity: 0.5;
+  border: solid 1px #f98100;
+  color: #f98100;
+  background-color: white;
+}
+.orange-button {
+  border: solid 1px #f98100;
+  color: #f98100;
+}
+.orange-button:hover,
+.orange-button:visited,
+.orange-button:active,
+.orange-button:focus,
+.orange-button:active:focus {
+  border: solid 1px #f98100;
+  background-color: #f98100;
+  color: white;
+}
+.green-button {
+  border: solid 1px #79bd1a;
+  color: #79bd1a;
+  margin-left: 20px;
+}
+.green-button:hover,
+.green-button:visited,
+.green-button:active,
+.green-button:focus,
+.green-button:active:focus {
+  border: solid 1px #79bd1a;
+  background-color: #79bd1a;
+  color: white;
+}
+header {
   display: block;
   width: 100%;
   height: 500px;
@@ -8,10 +60,39 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
   margin-bottom: -120px;
 }
-/* ----------- vars colors and fonts  */
+header .menu {
+  color: white;
+  padding: 20px;
+}
+header .logo {
+  margin: 20px 0 0 0;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+}
+header .logo img {
+  width: 50px;
+  margin: 0 0 20px 0;
+}
+header .logo h1 {
+  font-size: 60px;
+  border-top: solid 2px white;
+  border-bottom: solid 2px white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  margin: 10px 0;
+}
+header .logo h2 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+}
 /* ----------- daterangepicker */
 .hotel-calendar {
   font-family: 'Heebo', sans-serif;
@@ -80,6 +161,9 @@
   background-color: #a0dc4b;
   color: white;
 }
+.hotel-calendar #calendarContainer .date-picker-wrapper .month-wrapper .hovering {
+  background-color: #dadada;
+}
 .hotel-calendar #calendarContainer .date-picker-wrapper .month-wrapper .first-date-selected {
   background-color: #79bd1a !important;
   -webkit-border-top-left-radius: 20px;
@@ -101,48 +185,13 @@
 .hotel-calendar #calendarContainer .time2 {
   display: none;
 }
-/* ----------- hotels */
-body {
-  font-family: 'Heebo', sans-serif;
-}
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none !important;
-}
-.btn-default {
-  background-image: none;
-  border-radius: 20px;
-  font-size: 12px;
-  padding: 7px 20px 5px;
-}
-.orange-button {
-  border: solid 1px #f98100;
-  color: #f98100;
-}
-.orange-button:hover,
-.orange-button:visited,
-.orange-button:active,
-.orange-button:focus,
-.orange-button:active:focus {
-  border: solid 1px #f98100;
-  background-color: #f98100;
-  color: white;
-}
-.green-button {
-  border: solid 1px #79bd1a;
+/* ----------- filter */
+.filter h1 {
   color: #79bd1a;
-  margin-left: 20px;
 }
-.green-button:hover,
-.green-button:visited,
-.green-button:active,
-.green-button:focus,
-.green-button:active:focus {
-  border: solid 1px #79bd1a;
-  background-color: #79bd1a;
-  color: white;
+/* ----------- hotels */
+h4 {
+  letter-spacing: 2px;
 }
 .hotel-list ul {
   padding: 0;
@@ -162,7 +211,8 @@ button:focus {
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
-.hotel-list .col-sm-6 {
+.hotel-list .col-sm-6,
+.hotel-list .col-sm-8 {
   margin: 0 0 0 -30px;
 }
 .hotel-list .hotel-description {
@@ -219,4 +269,21 @@ button:focus {
 .hotel-list .hotel-prices .canvas-wrapper {
   margin: 50px 0 0;
   height: 120px;
+}
+footer {
+  background-color: white;
+}
+footer .social {
+  width: 90px;
+  margin: auto;
+}
+footer .social img {
+  margin: 10px 5px;
+  width: 20px;
+  float: left;
+}
+footer h6 {
+  color: #b5b5b5;
+  font-size: 10px;
+  margin: 10px 0 50px 0;
 }

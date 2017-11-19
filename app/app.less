@@ -14,6 +14,63 @@ sans-serif;
 
 /* ----------------- general stuff */
 
+body {
+  font-family: @Heebo-family;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+
+.btn-default {
+  background-image: none;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 7px 20px 5px;
+}
+
+.btn-default[disabled],
+.btn-default[disabled]:hover {
+  opacity: 0.5;
+  border: solid 1px @orange-color-venture;
+  color: @orange-color-venture;
+  background-color: white;
+}
+
+.orange-button {
+  border: solid 1px @orange-color-venture;
+  color: @orange-color-venture;
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus,
+  &:active:focus {
+    border: solid 1px @orange-color-venture;
+    background-color: @orange-color-venture;
+    color: white;
+  }
+}
+
+.green-button {
+  border: solid 1px @green-color-venture;
+  color: @green-color-venture;
+  margin-left: 20px;
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus,
+  &:active:focus {
+    border: solid 1px @green-color-venture;
+    background-color: @green-color-venture;
+    color: white;
+  }
+}
+
 header {
   display: block;
   width: 100%;
@@ -128,6 +185,9 @@ header {
           background-color: @light-green-color-venture;
           color: white;
         }
+        .hovering {
+          background-color: @light-gray-color-venture;
+        }
         @calendar-day-radius: 20px;
         .first-date-selected {
           background-color: @green-color-venture !important;
@@ -156,61 +216,25 @@ header {
 }
 
 
+/* ----------- filter */
+
+.filter {
+  h1 {
+    color: @green-color-venture;
+  }
+  h6 {
+    color: @dark-gray-color-venture;
+  }
+  hr {
+    margin: 10px 40px 20px 0;
+  }
+}
+
+
 /* ----------- hotels */
 
-body {
-  font-family: @Heebo-family;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none !important;
-}
-
-.btn-default {
-  background-image: none;
-  border-radius: 20px;
-  font-size: 12px;
-  padding: 7px 20px 5px;
-}
-
-.btn-default[disabled],
-.btn-default[disabled]:hover {
-  opacity: 0.5;
-  border: solid 1px @orange-color-venture;
-  color: @orange-color-venture;
-  background-color: white;
-}
-
-.orange-button {
-  border: solid 1px @orange-color-venture;
-  color: @orange-color-venture;
-  &:hover,
-  &:visited,
-  &:active,
-  &:focus,
-  &:active:focus {
-    border: solid 1px @orange-color-venture;
-    background-color: @orange-color-venture;
-    color: white;
-  }
-}
-
-.green-button {
-  border: solid 1px @green-color-venture;
-  color: @green-color-venture;
-  margin-left: 20px;
-  &:hover,
-  &:visited,
-  &:active,
-  &:focus,
-  &:active:focus {
-    border: solid 1px @green-color-venture;
-    background-color: @green-color-venture;
-    color: white;
-  }
+h4 {
+  letter-spacing: 2px;
 }
 
 .hotel-list {
@@ -296,7 +320,10 @@ button:focus {
 }
 
 footer {
+  margin: 200px 0 0 0;
+  padding: 20px 0 0 0;
   background-color: white;
+  border-top: solid 1px @light-gray-color-venture;
   .social {
     width: 90px;
     margin: auto;
@@ -310,5 +337,28 @@ footer {
     color: @gray-color-venture;
     font-size: 10px;
     margin: 10px 0 50px 0;
+  }
+}
+
+
+/* ----------- range slider */
+
+#ex1Slider {
+  .slider-selection {
+    background: @orange-color-venture;
+  }
+}
+
+stars {
+  div {
+    .starContainer {
+      position: relative;
+      float: left;
+      img {
+        cursor: pointer;
+        width: 20px;
+        margin: 0 3px 0 0;
+      }
+    }
   }
 }

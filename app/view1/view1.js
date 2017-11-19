@@ -9,8 +9,6 @@
         controller: 'View1Ctrl',
         controllerAs: 'vm'
       });
-
-
     }])
 
     .controller('View1Ctrl', View1Ctrl);
@@ -65,9 +63,19 @@
         }]
       }
     };
+    vm.filterHotels = filterHotels;
+    vm.selectedStar = 5;
+    vm.minPrice = 100;
+    vm.maxPrice = 600;
 
+
+    $scope.$watch('vm.selectedStar', function (current, original) {
+      vm.rateValueFilter = current;
+    });
 
     function init() {
+      startRangeSlider();
+      vm.searchHotels();
 
       $('input[name="daterange"]')
         .dateRangePicker({
@@ -136,6 +144,26 @@
         vm.hotels = response.hotels;
         createChartData(vm.hotels);
       });
+    }
+
+    function filterHotels(element) {
+      if (
+        element.price >= vm.minPrice
+        && element.price <= vm.maxPrice
+        && element.rate === Number(vm.rateValueFilter)
+      ) {
+        return element;
+      }
+    }
+
+    function startRangeSlider() {
+      $('#ex1')
+        .slider()
+        .on('slide', function (value) {
+          vm.minPrice = value.value[0];
+          vm.maxPrice = value.value[1];
+          $scope.$apply();
+        });
     }
 
   }

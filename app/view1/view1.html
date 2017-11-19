@@ -56,18 +56,34 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <br>
-        <h4>Best choices between {start date} and { end date }</h4>
+        <br>
+        <h4>Best choices between { start date } and { end date }</h4>
+        <br>
         <br>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-3">
-        <h1>filter</h1>
+      <div class="col-sm-3 filter">
+        <h6>Price Range</h6>
+        <input 
+          id="ex1" 
+          type="text" 
+          data-provide="slider"
+          data-slider-id="ex1Slider" 
+          data-slider-min="100" 
+          data-slider-max="600" 
+          data-slider-step="10"
+          data-slider-value="[100, 600]"
+          data-slider-ticks="[1, 2, 3]"
+        />
+        <hr>
+        <h6>Stars</h6>
+        <stars selected-star='vm.selectedStar'></stars>
       </div>
       <div class="col-sm-9 hotel-list">
         <ul>
-          <li ng-repeat="hotel in vm.hotels">
+          <li ng-repeat="hotel in vm.hotels | filter: vm.filterHotels" >
 
             <div class="panel panel-default">
               <div class="panel-body">
@@ -111,10 +127,8 @@
               </div>
             </div>
 
-
           </li>
         </ul>
-
       </div>
     </div>
 

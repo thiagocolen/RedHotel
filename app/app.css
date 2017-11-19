@@ -189,6 +189,12 @@ header .logo h2 {
 .filter h1 {
   color: #79bd1a;
 }
+.filter h6 {
+  color: #7b7b7b;
+}
+.filter hr {
+  margin: 10px 40px 20px 0;
+}
 /* ----------- hotels */
 h4 {
   letter-spacing: 2px;
@@ -271,7 +277,10 @@ h4 {
   height: 120px;
 }
 footer {
+  margin: 200px 0 0 0;
+  padding: 20px 0 0 0;
   background-color: white;
+  border-top: solid 1px #dadada;
 }
 footer .social {
   width: 90px;
@@ -286,4 +295,17 @@ footer h6 {
   color: #b5b5b5;
   font-size: 10px;
   margin: 10px 0 50px 0;
+}
+/* ----------- range slider */
+#ex1Slider .slider-selection {
+  background: #f98100;
+}
+stars div .starContainer {
+  position: relative;
+  float: left;
+}
+stars div .starContainer img {
+  cursor: pointer;
+  width: 20px;
+  margin: 0 3px 0 0;
 }

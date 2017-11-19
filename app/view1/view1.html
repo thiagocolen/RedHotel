@@ -24,8 +24,8 @@
                 <h3>{{vm.endDate}}</h3>
                 <Br>
                 <Br>
-                <button type="button" class="btn btn-default orange-button">Search Hotels</button>
-
+                <button type="button" class="btn btn-default orange-button" 
+                  ng-click="vm.searchHotels()" ng-disabled="vm.startDate === 'Choose a date'">Search Hotels</button>
               </div>
               <div class="col-sm-5">
                 <div id="calendarContainer"></div>

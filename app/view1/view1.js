@@ -19,6 +19,7 @@
   function View1Ctrl($scope, Services) {
     var vm = this;
     vm.init = init;
+    vm.searchHotels = searchHotels;
     vm.startDate = 'Choose a date';
     vm.endDate = 'Choose a date';
     vm.starsNumber = starsNumber;
@@ -37,7 +38,7 @@
       "November",
       "December"
     ];
-    
+
     vm.chartColors = ['#f98100', '#f98100', '#f98100', '#f98100', '#f98100', '#f98100', '#f98100'];
     vm.chartOptions = {
       responsive: true,
@@ -65,11 +66,8 @@
       }
     };
 
+
     function init() {
-      Services.getHotels().then(function (response) {
-        vm.hotels = response.hotels;
-        createChartData(vm.hotels);
-      });
 
       $('input[name="daterange"]')
         .dateRangePicker({
@@ -85,11 +83,9 @@
       $('input[name="daterange"]')
         .dateRangePicker()
         .bind('datepicker-change', function (event, obj) {
-          var date1 = new Date(obj.date1);
-          var date2 = new Date(obj.date2);
-          Services.getHotels().then(function (response) {
-            vm.hotels = response.hotels;
-          });
+          let date1 = new Date(obj.date1);
+          let date2 = new Date(obj.date2);
+
           vm.startDate =
             vm.monthNames[date1.getMonth()] +
             ' ' + date1.getDate() +
@@ -133,6 +129,13 @@
 
 
 
+    }
+
+    function searchHotels() {
+      Services.getHotels().then(function (response) {
+        vm.hotels = response.hotels;
+        createChartData(vm.hotels);
+      });
     }
 
   }

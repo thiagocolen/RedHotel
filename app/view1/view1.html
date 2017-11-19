@@ -1,6 +1,6 @@
 <div ng-init="vm.init()">
 
-  <div class="hero">
+  <header>
     <div class="row menu">
       <div class="col-sm-2">The Queen citys</div>
       <div class="col-sm-2">My Reservations</div>
@@ -14,7 +14,8 @@
         <h2>the queen city</h2>
       </div>
     </div>
-  </div>
+  </header>
+
 
   <div class="container">
     <div class="row">
@@ -38,8 +39,7 @@
                 <h3>{{vm.endDate}}</h3>
                 <Br>
                 <Br>
-                <button type="button" class="btn btn-default orange-button" 
-                  ng-click="vm.searchHotels()" ng-disabled="vm.startDate === 'Choose a date'">Search Hotels</button>
+                <button type="button" class="btn btn-default orange-button" ng-click="vm.searchHotels()" ng-disabled="vm.startDate === 'Choose a date'">Search Hotels</button>
               </div>
               <div class="col-sm-5">
                 <div id="calendarContainer"></div>
@@ -119,5 +119,22 @@
     </div>
 
   </div>
+
+  <footer>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+
+        <div class="social">
+          <img src="imgs/facebook.svg" alt="">
+          <img src="imgs/twitter.svg" alt="">
+          <img src="imgs/instagram.svg" alt="">
+          <div class="clearfix"></div>
+        </div>
+
+        <h6>© 2004-2017 Visit Charlotte. All Rights Reserved. 500 S. College Street, Suite 300, Charlotte, NC 28202</h6>
+
+      </div>
+    </div>
+  </footer>
 
 </div>

@@ -14,7 +14,7 @@ sans-serif;
 
 /* ----------------- general stuff */
 
-.hero {
+header {
   display: block;
   width: 100%;
   height: 500px;
@@ -43,8 +43,8 @@ sans-serif;
       font-size: 60px;
       border-top: solid 2px white;
       border-bottom: solid 2px white;
-      padding-top: 10px; 
-      padding-bottom: 10px; 
+      padding-top: 10px;
+      padding-bottom: 10px;
       font-weight: bold;
       letter-spacing: 10px;
       margin: 10px 0;
@@ -232,7 +232,8 @@ button:focus {
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
   }
-  .col-sm-6 {
+  .col-sm-6,
+  .col-sm-8 {
     margin: 0 0 0 -30px;
   }
   .hotel-description {
@@ -263,7 +264,7 @@ button:focus {
         color: @green-color-venture;
         font-weight: bold;
         text-align: right;
-        letter-spacing: 1px; // font-family: @Montserrat-family;        
+        letter-spacing: 1px;
       }
     }
   }
@@ -291,5 +292,23 @@ button:focus {
       margin: 50px 0 0;
       height: 120px;
     }
+  }
+}
+
+footer {
+  background-color: white;
+  .social {
+    width: 90px;
+    margin: auto;
+    img {
+      margin: 10px 5px;
+      width: 20px;
+      float: left;
+    }
+  }
+  h6 {
+    color: @gray-color-venture;
+    font-size: 10px;
+    margin: 10px 0 50px 0;
   }
 }

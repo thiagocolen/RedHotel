@@ -67,7 +67,7 @@
     vm.selectedStar = 5;
     vm.minPrice = 100;
     vm.maxPrice = 600;
-
+    vm.hotelsListVisible = false;
 
     $scope.$watch('vm.selectedStar', function (current, original) {
       vm.rateValueFilter = current;
@@ -75,7 +75,6 @@
 
     function init() {
       startRangeSlider();
-      vm.searchHotels();
 
       $('input[name="daterange"]')
         .dateRangePicker({
@@ -140,6 +139,7 @@
     }
 
     function searchHotels() {
+      vm.hotelsListVisible = true;
       Services.getHotels().then(function (response) {
         vm.hotels = response.hotels;
         createChartData(vm.hotels);
